@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>300+ ChatGPT Prompts (FREE PDF Download)</title>
+  <meta name="description" content="Unlock your free PDF guide with over 300 high-impact ChatGPT prompts for content creation, marketing, AI art, and more. Instant download!">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Custom styles to complement Tailwind */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    .card-shadow {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px 0 rgba(59, 130, 246, 0.35);
+    }
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.45);
+    }
+    .btn-primary:active:not(:disabled) {
+      transform: translateY(0px);
+      box-shadow: 0 4px 15px 0 rgba(59, 130, 246, 0.35);
+    }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    #lockerStatus {
+      min-height: 1.25em; /* Reserve space for the status message */
+    }
+  </style>
+  
+  <script type="text/javascript">
+    var FIQyB_zDT_iBHIHc = {"it": 4493376, "key": "2081e"};
+  </script>
+  <script src="https://d2yc6hxtq0phup.cloudfront.net/892923a.js" defer></script> 
+  
+</head>
+<body class="gradient-bg min-h-screen flex flex-col items-center justify-center p-4 sm:p-6">
+
+  <div class="container bg-white w-full max-w-lg mx-auto p-6 sm:p-10 rounded-xl card-shadow text-center">
+    
+    <img src="https://placehold.co/100x100/3B82F6/FFFFFF?text=PDF&font=inter" alt="PDF Icon" class="mx-auto mb-6 rounded-lg" width="80" height="80">
+
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
+      Unlock 300+ ChatGPT Prompts
+    </h1>
+    
+    <p class="text-gray-600 text-base sm:text-lg mb-8">
+      Get your FREE PDF guide packed with ready-to-use prompts to supercharge your content creation, marketing, AI art generation, and problem-solving skills. Instant access after one quick step!
+    </p>
+    
+    <button 
+      id="unlockButton" 
+      onclick="handleUnlockClick()" 
+      class="btn-primary text-white font-semibold py-3 px-8 sm:py-4 sm:px-12 rounded-lg text-lg sm:text-xl w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-blue-300"
+      disabled > <i class="fas fa-unlock-alt mr-2"></i>Unlock Your Free PDF
+    </button>
+
+    <p id="lockerStatus" class="text-xs text-gray-500 mt-4">
+      Initializing locker... Please wait.
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleUnlockClick() {
+      // Attempt to call the locker function if it's available
+      try {
+        if (typeof xfContentLocker === 'object' && typeof xfContentLocker.openLocker === 'function') {
+          xfContentLocker.openLocker(); 
+        } else {
+          console.error("Locker function (xfContentLocker.openLocker) not available on click.");
+          document.getElementById('lockerStatus').textContent = "Error: Unlock function not available. Please refresh.";
+          // It's good practice to inform the user if the primary action can't be performed
+          alert("Error: The unlock function is not available. This might be due to a script loading issue or an ad blocker. Please try refreshing or disabling ad blockers for this site.");
+        }
+      } catch (error) {
+        console.error("Error calling xfContentLocker.openLocker():", error);
+        document.getElementById('lockerStatus').textContent = "Error processing unlock. Please try again.";
+        alert("An error occurred while trying to unlock the content. Details: " + error.message);
+      }
+    }
+
+    // Polling mechanism to check for xfContentLocker and its openLocker method
+    function initializeLockerInterface() {
+      const unlockButton = document.getElementById('unlockButton');
+      const lockerStatus = document.getElementById('lockerStatus');
+      let attempts = 0;
+      const maxAttempts = 20; // Try for 10 seconds (20 * 500ms)
+      const pollInterval = 500; // Check every 500ms
+
+      lockerStatus.textContent = "Initializing locker... Please wait.";
+
+      const intervalId = setInterval(function() {
+        attempts++;
+        let lockerReady = typeof xfContentLocker === 'object' && 
+                          xfContentLocker !== null && 
+                          typeof xfContentLocker.openLocker === 'function';
+        
+        if (lockerReady) {
+          unlockButton.disabled = false;
+          lockerStatus.textContent = "Locker ready. Click the button above!";
+          clearInterval(intervalId);
+        } else if (attempts >= maxAttempts) {
+          console.error("Locker function (xfContentLocker.openLocker) not found after " + maxAttempts + " attempts. Stopping poll.");
+          unlockButton.disabled = true; // Keep it disabled
+          lockerStatus.innerHTML = "Error: Locker could not be initialized.<br>This might be due to an ad blocker or network issue. Please try refreshing or temporarily disabling ad blockers for this site.";
+          clearInterval(intervalId);
+        }
+      }, pollInterval);
+    }
+
+    // Start the initialization process once the DOM is fully loaded
+    if (document.readyState === 'loading') { 
+        document.addEventListener('DOMContentLoaded', initializeLockerInterface);
+    } else { 
+        initializeLockerInterface();
+    }
+  </script>
+
+</body>
+</html>
